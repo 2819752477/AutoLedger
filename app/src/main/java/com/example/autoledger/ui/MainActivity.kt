@@ -19,6 +19,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvStatus: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // 全局崩溃捕获：把堆栈写到手机存储，方便排查闪退
+        Thread.setDefaultUncaughtExceptionHandler { t, e ->
+            try {
+                val f = java.io.File("/sdcard/Download/DSH-Go/crash.log")
+                f.parentFile?.mkdirs()
+                val sw = java.io.StringWriter()
+                e.printStackTrace(java.io.PrintWriter(sw))
+                f.writeText("thread=${t.name}\n" + sw.toString())
+            } catch (_: Exception) {}
+            android.os.Process.killProcess(android.os.Process.myPid())
+        }
         super.onCreate(savedInstanceState)
 
         val root = LinearLayout(this).apply {
