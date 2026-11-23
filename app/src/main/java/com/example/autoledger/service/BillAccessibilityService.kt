@@ -1,7 +1,7 @@
 package com.example.autoledger.service
 
 import android.accessibilityservice.AccessibilityService
-import android.accessibilityservice.AccessibilityEvent
+import android.view.accessibility.AccessibilityEvent
 import android.util.Log
 import android.view.accessibility.AccessibilityNodeInfo
 import com.example.autoledger.pipeline.BillRepository
