@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutoLedger</string>
+    <string name="a11y_desc">读取支付成功页的金额与商户，自动记一笔账。数据仅存本机。</string>
+</resources>
